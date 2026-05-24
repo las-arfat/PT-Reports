@@ -203,6 +203,10 @@ Execution of the modified `dash` binary resulted in root-level access.
 
 ![Step 17](images/step17.png)
 
+# Proof Images
+
+![Step 18](images/step18.png)
+
 ---
 
 # Remediation
