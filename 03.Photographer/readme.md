@@ -209,6 +209,10 @@ The vulnerable SUID binary was abused to obtain root privileges.
 
 ![Step 17](images/step17.png)
 
+### Proof Image
+
+![Step 18](images/step18.png)
+
 ---
 
 # Remediation
