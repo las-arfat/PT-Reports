@@ -89,6 +89,8 @@ Netcat was used to inject payloads into the log file.
 
 ## Step 7 – Execute Commands Through URL
 
+```?cmd=whoami```
+
 Commands could now be executed directly through crafted URL requests.
 
 ### Screenshot
