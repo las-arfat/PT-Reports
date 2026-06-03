@@ -21,7 +21,7 @@
 nmap -sn 192.168.0.0/24
 ```
 
-![Step 1](images/step1.png)
+![Step 1](images/Picture1.png)
 
 ---
 
@@ -31,7 +31,7 @@ nmap -sn 192.168.0.0/24
 nmap -p- -sC -sV 192.168.0.175 --open
 ```
 
-![Step 2](images/step2.png)
+![Step 2](images/Picture2.png)
 
 ---
 
@@ -43,7 +43,7 @@ A hidden `index.html` page was discovered using Wfuzz.
 wfuzz -c -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt --hc 404 http://192.168.0.175/FUZZ
 ```
 
-![Step 3](images/step3.png)
+![Step 3](images/Picture3.png)
 
 ---
 
@@ -51,7 +51,7 @@ wfuzz -c -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt --hc 40
 
 Further enumeration revealed a CMS installation running on the target.
 
-![Step 4](images/step4.png)
+![Step 4](images/Picture4.png)
 
 ---
 
@@ -63,7 +63,7 @@ SMB allowed anonymous/null-session access.
 enum4linux 192.168.0.175
 ```
 
-![Step 5](images/step5.png)
+![Step 5](images/Picture5.png)
 
 ---
 
@@ -71,7 +71,7 @@ enum4linux 192.168.0.175
 
 A file was retrieved through SMB access without authentication.
 
-![Step 6](images/step6.png)
+![Step 6](images/Picture6.png)
 
 ---
 
@@ -79,7 +79,7 @@ A file was retrieved through SMB access without authentication.
 
 Credentials for the CMS were identified from the retrieved files.
 
-![Step 7](images/step7.png)
+![Step 7](images/Picture7.png)
 
 ---
 
@@ -87,7 +87,7 @@ Credentials for the CMS were identified from the retrieved files.
 
 Authenticated access to the CMS was achieved.
 
-![Step 8](images/step8.png)
+![Step 8](images/Picture8.png)
 
 ---
 
@@ -95,7 +95,7 @@ Authenticated access to the CMS was achieved.
 
 The CMS version was identified through the `changelog.txt` file.
 
-![Step 9](images/step9.png)
+![Step 9](images/Picture9.png)
 
 ---
 
@@ -103,7 +103,7 @@ The CMS version was identified through the `changelog.txt` file.
 
 A known exploit affecting the identified CMS version was located.
 
-![Step 10](images/step10.png)
+![Step 10](images/Picture10.png)
 
 ---
 
@@ -111,7 +111,7 @@ A known exploit affecting the identified CMS version was located.
 
 The exploit was used to bypass authentication and gain administrator access.
 
-![Step 11](images/step11.png)
+![Step 11](images/Picture11.png)
 
 ---
 
@@ -119,7 +119,7 @@ The exploit was used to bypass authentication and gain administrator access.
 
 The login request was intercepted using Burp Suite and the password parameter was modified before forwarding the request.
 
-![Step 12](images/step12.png)
+![Step 12](images/Picture12.png)
 
 ---
 
@@ -127,7 +127,7 @@ The login request was intercepted using Burp Suite and the password parameter wa
 
 Administrative privileges were successfully obtained.
 
-![Step 13](images/step13.png)
+![Step 13](images/Picture13.png)
 
 ---
 
@@ -135,7 +135,7 @@ Administrative privileges were successfully obtained.
 
 Further enumeration inside the CMS revealed system credentials.
 
-![Step 14](images/step14.png)
+![Step 14](images/Picture14.png)
 
 ---
 
@@ -147,7 +147,7 @@ The discovered credentials were used to gain SSH access.
 ssh user@192.168.0.175
 ```
 
-![Step 15](images/step15.png)
+![Step 15](images/Picture15.png)
 
 ---
 
@@ -159,7 +159,7 @@ The user `silky` was identified as a sudo-capable account.
 sudo -l
 ```
 
-![Step 16](images/step16.png)
+![Step 16](images/Picture16.png)
 
 ---
 
@@ -167,11 +167,7 @@ sudo -l
 
 Privilege escalation was performed successfully, resulting in root access.
 
-![Step 17](images/step17.png)
-
-#Proof
-
-![Step 18](images/step18.png)
+![Step 17](images/Picture17.png)
 
 ---
 
