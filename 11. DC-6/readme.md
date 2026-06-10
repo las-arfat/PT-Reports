@@ -185,9 +185,9 @@ A custom `.nse` script was created and executed through Nmap, resulting in root 
 
 ![Step 18](images/Picture18.png)
 
-##Proof
+## Proof
 
-![Step 18](images/Picture19.png)
+![Step 18](images/proof.png)
 
 ---
 
